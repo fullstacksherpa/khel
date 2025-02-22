@@ -26,7 +26,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  
+
 jobs:
   doctor:
     name: Expo Doctor (expo)
@@ -45,7 +45,9 @@ jobs:
         uses: ./.github/actions/setup-node-pnpm-install
 
       - name: Run prebuild
-        run: pnpm run prebuild
+        run: |
+          export API_URL="http://localhost:8080/v1/"
+          pnpm run prebuild
 
       - name: 🚑 Run Doctor Checks
         run: |
