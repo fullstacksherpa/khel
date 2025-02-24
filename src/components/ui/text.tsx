@@ -9,11 +9,7 @@ interface Props extends TextProps {
 
 export const Text = ({ className = '', children, ...props }: Props) => {
   const textStyle = React.useMemo(
-    () =>
-      twMerge(
-        'text-base text-black  dark:text-white  font-inter font-normal',
-        className
-      ),
+    () => twMerge('text-base text-black    font-inter font-normal', className),
     [className]
   );
 
