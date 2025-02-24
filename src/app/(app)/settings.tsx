@@ -1,10 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Env } from '@env';
 import { useColorScheme } from 'nativewind';
+import React from 'react';
 
 import { Item } from '@/components/settings/item';
 import { ItemsContainer } from '@/components/settings/items-container';
-import { LanguageItem } from '@/components/settings/language-item';
 import { ThemeItem } from '@/components/settings/theme-item';
 import {
   colors,
@@ -14,7 +14,7 @@ import {
   View,
 } from '@/components/ui';
 import { Github, Rate, Share, Support, Website } from '@/components/ui/icons';
-import { translate, useAuth } from '@/lib';
+import { useAuth } from '@/lib';
 
 export default function Settings() {
   const signOut = useAuth.use.signOut();
@@ -27,47 +27,44 @@ export default function Settings() {
 
       <ScrollView>
         <View className="flex-1 px-4 pt-16 ">
-          <Text className="text-xl font-bold">
-            {translate('settings.title')}
-          </Text>
-          <ItemsContainer title="settings.generale">
-            <LanguageItem />
+          <Text className="text-xl font-bold">Settings</Text>
+          <ItemsContainer title="General">
             <ThemeItem />
           </ItemsContainer>
 
-          <ItemsContainer title="settings.about">
-            <Item text="settings.app_name" value={Env.NAME} />
-            <Item text="settings.version" value={Env.VERSION} />
+          <ItemsContainer title="About">
+            <Item text="App Name" value={Env.NAME} />
+            <Item text="Version" value={Env.VERSION} />
           </ItemsContainer>
 
-          <ItemsContainer title="settings.support_us">
+          <ItemsContainer title="Support Us">
             <Item
-              text="settings.share"
+              text="Share"
               icon={<Share color={iconColor} />}
               onPress={() => {}}
             />
             <Item
-              text="settings.rate"
+              text="Rate"
               icon={<Rate color={iconColor} />}
               onPress={() => {}}
             />
             <Item
-              text="settings.support"
+              text="Support"
               icon={<Support color={iconColor} />}
               onPress={() => {}}
             />
           </ItemsContainer>
 
-          <ItemsContainer title="settings.links">
-            <Item text="settings.privacy" onPress={() => {}} />
-            <Item text="settings.terms" onPress={() => {}} />
+          <ItemsContainer title="Links">
+            <Item text="Privacy" onPress={() => {}} />
+            <Item text="Terms" onPress={() => {}} />
             <Item
-              text="settings.github"
+              text="Github"
               icon={<Github color={iconColor} />}
               onPress={() => {}}
             />
             <Item
-              text="settings.website"
+              text="Website"
               icon={<Website color={iconColor} />}
               onPress={() => {}}
             />
@@ -75,7 +72,7 @@ export default function Settings() {
 
           <View className="my-8">
             <ItemsContainer>
-              <Item text="settings.logout" onPress={signOut} />
+              <Item text="Logout" onPress={signOut} />
             </ItemsContainer>
           </View>
         </View>
