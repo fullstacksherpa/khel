@@ -5,7 +5,6 @@ import React from 'react';
 
 import { Item } from '@/components/settings/item';
 import { ItemsContainer } from '@/components/settings/items-container';
-import { ThemeItem } from '@/components/settings/theme-item';
 import {
   colors,
   FocusAwareStatusBar,
@@ -29,7 +28,8 @@ export default function Settings() {
         <View className="flex-1 px-4 pt-16 ">
           <Text className="text-xl font-bold">Settings</Text>
           <ItemsContainer title="General">
-            <ThemeItem />
+            <Item text="App Name" value={Env.NAME} />
+            <Item text="Version" value={Env.VERSION} />
           </ItemsContainer>
 
           <ItemsContainer title="About">
