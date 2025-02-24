@@ -3,7 +3,7 @@ import React from 'react';
 import type { OptionType } from '@/components/ui';
 import { Options, useModal } from '@/components/ui';
 import type { ColorSchemeType } from '@/lib';
-import { translate, useSelectedTheme } from '@/lib';
+import { useSelectedTheme } from '@/lib';
 
 import { Item } from './item';
 
@@ -21,9 +21,9 @@ export const ThemeItem = () => {
 
   const themes = React.useMemo(
     () => [
-      { label: `${translate('settings.theme.dark')} 🌙`, value: 'dark' },
-      { label: `${translate('settings.theme.light')} 🌞`, value: 'light' },
-      { label: `${translate('settings.theme.system')} ⚙️`, value: 'system' },
+      { label: `Dark 🌙`, value: 'dark' },
+      { label: `Light 🌞`, value: 'light' },
+      { label: `System ⚙️`, value: 'system' },
     ],
     []
   );
@@ -35,11 +35,7 @@ export const ThemeItem = () => {
 
   return (
     <>
-      <Item
-        text="settings.theme.title"
-        value={theme?.label}
-        onPress={modal.present}
-      />
+      <Item text="Theme" value={theme?.label} onPress={modal.present} />
       <Options
         ref={modal.ref}
         options={themes}
